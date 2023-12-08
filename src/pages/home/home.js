@@ -4,6 +4,9 @@ import imgDog01 from "../../assets/images/background/dog_shadow01.png";
 import imgButtonBuy from "../../assets/images/background/buttonBuy.svg";
 import imgButtonWhitepaper from "../../assets/images/background/buttonWhitepaper.svg";
 import imgButtonWhite from "../../assets/images/background/buttonWhite.svg";
+import imgBone from "../../assets/images/icon/bone01.png";
+import imgHouse from "../../assets/images/icon/house01.png";
+import { FaPlus } from "react-icons/fa6";
 
 const Home = () => {
   return (
@@ -37,17 +40,35 @@ const Home = () => {
         <SectionButtonGroup01>
           <SectionBuy>
             <ButtonBuy>Buy $WILLO</ButtonBuy>
-            <TextBuy>Buy Tax: 8%</TextBuy>
+            <TextBuy>Buy Tax: 0%</TextBuy>
             <TextHolders>TOTAL $WILLO HOLDERS / 0</TextHolders>
           </SectionBuy>
           <SectionSell>
             <ButtonWhitepaper>Whitepaper</ButtonWhitepaper>
-            <TextBuy>Sell Tax: 10%</TextBuy>
+            <TextBuy>Sell Tax: 0%</TextBuy>
             <TextHolders>TOTAL $WILLO BURNED / 0</TextHolders>
           </SectionSell>
         </SectionButtonGroup01>
       </SectionInfomation>
-      <SectionSeparate>1</SectionSeparate>
+      <SectionSeparate>
+        <SectionBar>
+          <IconPlusBone>
+            <FaPlus />
+          </IconPlusBone>
+          <IconPlusHouse>
+            <FaPlus />
+          </IconPlusHouse>
+          <SectionBone>
+            <img src={imgBone} width={"100%"} height={"100%"} alt="bone" />
+          </SectionBone>
+          <SectionHouse>
+            <img src={imgHouse} width={"100%"} height={"100%"} alt="house" />
+            <SectionExplorer>
+              <ButtonViewExplorer>View Explorer</ButtonViewExplorer>
+            </SectionExplorer>
+          </SectionHouse>
+        </SectionBar>
+      </SectionSeparate>
       <SectionImage>
         <img src={imgDog01} width={"100%"} height={"100%"} alt="dog" />
       </SectionImage>
@@ -129,16 +150,31 @@ const TextContractAddress = styled.a`
 
 const SectionSeparate = styled(Box)`
   display: flex;
-  margin: 100px 100px;
+  height: 100%;
+  padding: 100px 70px 150px 220px;
+  box-sizing: border-box;
+  @media (max-width: 1440px) {
+    padding: 100px 0px 150px 80px;
+  }
+`;
+
+const SectionBar = styled(Box)`
+  display: flex;
+  position: relative;
+  width: 3px;
+  height: 100%;
+  background-color: white;
+  border-radius: 20px;
 `;
 
 const SectionImage = styled(Box)`
   display: flex;
-  width: 700px;
-  aspect-ratio: 1;
+  width: 650px;
+  height: 650px;
 
   @media (max-width: 1440px) {
-    width: 550px;
+    width: 500px;
+    height: 500px;
   }
 `;
 
@@ -245,14 +281,6 @@ const TextBuy = styled(Box)`
   }
 `;
 
-const SectionBottom = styled(Box)`
-  display: flex;
-  position: absolute;
-  align-items: center;
-  bottom: 0px;
-  left: 0px;
-`;
-
 const TextHolders = styled(Box)`
   display: flex;
   color: #fff;
@@ -263,6 +291,83 @@ const TextHolders = styled(Box)`
   font-weight: 400;
   line-height: normal;
   margin-right: 60px;
+`;
+
+const SectionBone = styled(Box)`
+  display: flex;
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  aspect-ratio: 1;
+`;
+
+const SectionHouse = styled(Box)`
+  display: flex;
+  position: absolute;
+  align-items: center;
+  right: -20px;
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  bottom: -110px;
+  width: 150px;
+  aspect-ratio: 1;
+`;
+
+const SectionExplorer = styled(Box)`
+  display: flex;
+  position: absolute;
+  left: 50%;
+  bottom: -50px;
+  transform: translateX(-50%);
+`;
+
+const ButtonViewExplorer = styled(Box)`
+  display: flex;
+  width: 320px;
+  height: 55px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+
+  text-align: center;
+  font-family: Bubblegum Sans;
+  font-size: 15.57px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 6.228px;
+  background: #80a3ff;
+
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s;
+  &:hover {
+    background-color: white;
+    color: #80a3ff;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
+const IconPlusBone = styled(Box)`
+  display: flex;
+  position: absolute;
+  color: white;
+  font-size: 30px;
+  right: -50px;
+  top: -40px;
+`;
+
+const IconPlusHouse = styled(Box)`
+  display: flex;
+  position: absolute;
+  color: white;
+  font-size: 30px;
+  right: -50px;
+  bottom: -40px;
 `;
 
 export default Home;
