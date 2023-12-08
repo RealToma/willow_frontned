@@ -44,7 +44,13 @@ const Home = () => {
             <TextHolders>TOTAL $WILLO HOLDERS / 0</TextHolders>
           </SectionBuy>
           <SectionSell>
-            <ButtonWhitepaper>Whitepaper</ButtonWhitepaper>
+            <ButtonWhitepaper
+              onClick={() => {
+                window.open(process.env.REACT_APP_LINK_WHITEPAPER);
+              }}
+            >
+              Whitepaper
+            </ButtonWhitepaper>
             <TextBuy>Sell Tax: 0%</TextBuy>
             <TextHolders>TOTAL $WILLO BURNED / 0</TextHolders>
           </SectionSell>
@@ -64,7 +70,15 @@ const Home = () => {
           <SectionHouse>
             <img src={imgHouse} width={"100%"} height={"100%"} alt="house" />
             <SectionExplorer>
-              <ButtonViewExplorer>View Explorer</ButtonViewExplorer>
+              <ButtonViewExplorer
+                onClick={() => {
+                  window.open(
+                    `https://etherscan.io/address/${process.env.REACT_APP_ADDRESS_TOKEN_CONTRACT}`
+                  );
+                }}
+              >
+                View Explorer
+              </ButtonViewExplorer>
             </SectionExplorer>
           </SectionHouse>
         </SectionBar>

@@ -11,7 +11,16 @@ const Layout = ({ children }) => {
 
   return (
     <StyledComponent>
-      <SectionLogo>
+      <SectionLogo
+        onClick={() => {
+          navigate("/");
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+        }}
+      >
         <ImgLogo>
           <img src={imgLogo} width={"100%"} height={"100%"} alt="Logo" />
         </ImgLogo>
@@ -23,7 +32,16 @@ const Layout = ({ children }) => {
             <TextEachLink
               key={index}
               onClick={() => {
-                navigate(each.link);
+                if (!each.flagLink) {
+                  window.open(each.link);
+                } else {
+                  navigate(each.link);
+                  window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                  });
+                }
               }}
             >
               {each.name}
@@ -177,7 +195,7 @@ const TextEachLink = styled(Box)`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin: 0px 50px;
+  margin: 0px 60px;
 
   cursor: pointer;
   user-select: none;
@@ -187,6 +205,12 @@ const TextEachLink = styled(Box)`
     text-shadow: 0px 0px 12px white;
   }
 
+  @media (max-width: 1600px) {
+    margin: 0px 45px;
+  }
+  @media (max-width: 1440px) {
+    margin: 0px 40px;
+  }
   /* &:active {
     transform: scale(0.95);
   } */

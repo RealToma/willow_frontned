@@ -2,13 +2,16 @@ export const dataLinks = [
   {
     name: "Home",
     link: "/",
+    flagLink: true,
   },
   {
     name: "Tokenomics",
-    link: "/tokenomics",
+    link: "https://docs.willowdoge.xyz/willow-tokenomics-overview",
+    flagLink: false,
   },
   {
     name: "Swap",
-    link: "/swap",
+    link: "https://app.uniswap.org/swap?chain=mainnet",
+    flagLink: false,
   },
 ];
