@@ -16,13 +16,20 @@ const Layout = ({ children }) => {
       <SectionContacts>
         {dataContacts.map((each, index) => {
           return (
-            <SectionContactIcon
-              key={index}
-              color={each.colorFont}
-              bgcolor={each.colorBack}
+            <a
+              href={each.urlLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
             >
-              {each.icon}
-            </SectionContactIcon>
+              <SectionContactIcon
+                key={index}
+                color={each.colorFont}
+                bgcolor={each.colorBack}
+              >
+                {each.icon}
+              </SectionContactIcon>
+            </a>
           );
         })}
       </SectionContacts>
