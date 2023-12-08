@@ -52,7 +52,7 @@ const Layout = ({ children }) => {
         })}
       </SectionContacts>
       <SectionContent>{children}</SectionContent>
-      <Footer> </Footer>
+      <Footer>WILLO: $0.000000000</Footer>
     </StyledComponent>
   );
 };
@@ -94,6 +94,17 @@ const TextLogo = styled(Box)`
 
 const Footer = styled(Box)`
   display: flex;
+  position: absolute;
+  color: #fff;
+
+  text-align: right;
+  font-family: Bubblegum Sans;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  right: 0px;
+  bottom: 0px;
 `;
 
 const SectionContacts = styled(Box)`
@@ -187,6 +198,10 @@ const SectionContent = styled(Box)`
   height: 100%;
   padding: 65px 40px 50px 40px;
   box-sizing: border-box;
+
+  @media (max-width: 1440px) {
+    padding: 65px 40px 50px 40px;
+  }
 `;
 
 export default Layout;

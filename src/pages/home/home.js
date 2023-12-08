@@ -35,20 +35,33 @@ const Home = () => {
           </TextContractAddress>
         </TextWelcomeDescription>
         <SectionButtonGroup01>
-          <ButtonBuy>Buy $WILLO</ButtonBuy>
-          <ButtonWhitepaper>Whitepaper</ButtonWhitepaper>
+          <SectionBuy>
+            <ButtonBuy>Buy $WILLO</ButtonBuy>
+            <TextBuy>Buy Tax: 8%</TextBuy>
+            <TextHolders>TOTAL $WILLO HOLDERS / 0</TextHolders>
+          </SectionBuy>
+          <SectionSell>
+            <ButtonWhitepaper>Whitepaper</ButtonWhitepaper>
+            <TextBuy>Sell Tax: 10%</TextBuy>
+            <TextHolders>TOTAL $WILLO BURNED / 0</TextHolders>
+          </SectionSell>
         </SectionButtonGroup01>
       </SectionInfomation>
       <SectionSeparate>1</SectionSeparate>
       <SectionImage>
         <img src={imgDog01} width={"100%"} height={"100%"} alt="dog" />
       </SectionImage>
+      {/* <SectionBottom>
+        <TextHolders>TOTAL $WILLO HOLDERS / 0</TextHolders>
+        <TextHolders>TOTAL $WILLO BURNED / 0</TextHolders>
+      </SectionBottom> */}
     </StyledComponent>
   );
 };
 
 const StyledComponent = styled(Box)`
   display: flex;
+  position: relative;
   width: 100%;
   justify-content: space-between;
 `;
@@ -90,7 +103,7 @@ const TextWelcomeDescription = styled(Box)`
   font-weight: 400;
   line-height: normal;
 
-  margin-top: 30px;
+  margin-top: 40px;
   @media (max-width: 1440px) {
     margin-top: 20px;
   }
@@ -132,7 +145,7 @@ const SectionImage = styled(Box)`
 const SectionButtonGroup01 = styled(Box)`
   display: flex;
   align-items: center;
-  margin-top: 45px;
+  margin-top: 50px;
   @media (max-width: 1440px) {
     margin-top: 32px;
   }
@@ -202,8 +215,54 @@ const ButtonWhitepaper = styled(Box)`
   &:active {
     transform: scale(0.95);
   }
+`;
 
-  margin-left: 60px;
+const SectionBuy = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  margin-right: 60px;
+`;
+
+const SectionSell = styled(Box)`
+  display: flex;
+  flex-direction: column;
+`;
+
+const TextBuy = styled(Box)`
+  color: #fff;
+
+  font-family: Bubblegum Sans;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 70px;
+  margin-bottom: 80px;
+
+  @media (max-width: 1440px) {
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+`;
+
+const SectionBottom = styled(Box)`
+  display: flex;
+  position: absolute;
+  align-items: center;
+  bottom: 0px;
+  left: 0px;
+`;
+
+const TextHolders = styled(Box)`
+  display: flex;
+  color: #fff;
+
+  font-family: Bubblegum Sans;
+  font-size: 15.57px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-right: 60px;
 `;
 
 export default Home;
