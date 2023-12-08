@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import styled from "styled-components";
 import Home from "./pages/home/home";
 import Layout from "./pages/layout/layout";
-import Firesale from "./pages/Firesale/firesale";
+// import Firesale from "./pages/Firesale/firesale";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/firesale" element={<Firesale />} />
+            {/* <Route path="/firesale" element={<Firesale />} /> */}
           </Routes>
         </Layout>
       </StyledComponent>

@@ -13,7 +13,10 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const handleBuy = () => {
-    navigate("/firesale");
+    // navigate("/firesale");
+    window.open(
+      "https://raydium.io/swap/?inputCurrency=sol&outputCurrency=HV25Na2nUyULkZYi4wkUE54RSmNWu1nYwdFwVAx6ijFc&fixed=in"
+    );
   };
 
   return (
@@ -27,12 +30,12 @@ const Home = () => {
         </TextWelcome>
         <TextWelcomeDescription>
           Willow is a cryptocurrency that embrace the playful spirit of meme
-          culture and gamification on Solana Chain. Willow is more than
-          just a cryptocurrency—it's an experience, a journey, and a celebration
-          of the vibrant and creative community that forms its backbone.
-          Inspired by the charm of meme doges and fueled by the efficiency of
-          blockchain technology, Willow represents a unique fusion of fun and
-          financial innovation.
+          culture and gamification on Solana Chain. Willow is more than just a
+          cryptocurrency—it's an experience, a journey, and a celebration of the
+          vibrant and creative community that forms its backbone. Inspired by
+          the charm of meme doges and fueled by the efficiency of blockchain
+          technology, Willow represents a unique fusion of fun and financial
+          innovation.
         </TextWelcomeDescription>
         <TextWelcomeDescription>
           Contract Address:{" "}
@@ -82,7 +85,7 @@ const Home = () => {
               <ButtonViewExplorer
                 onClick={() => {
                   window.open(
-                    `https://solscan.io/account/${process.env.REACT_APP_ADDRESS_TOKEN_CONTRACT}`
+                    "https://dexscreener.com/solana/yraqhwxbrdcyp62nstms9thrhqac3xwfbysx2nwedke"
                   );
                 }}
               >
