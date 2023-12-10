@@ -1,13 +1,18 @@
 import { Box } from "@mui/material";
 import styled from "styled-components";
 import imgBackground from "../../assets/images/background/backGrey01.png";
+import imgBackgroundMobile01 from "../../assets/images/background/backGreyMobile01.png";
+import imgBackgroundMobile02 from "../../assets/images/background/backGreyMobile02.png";
 import imgLogo from "../../assets/images/logo/logo01.png";
+import { MdOutlineMenu } from "react-icons/md";
 import { dataContacts } from "../../data/contacts";
 import { dataLinks } from "../../data/links";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Layout = ({ children }) => {
   const navigate = useNavigate();
+  const [flagMobileClicked, setsFlagMobileClicked] = useState(false);
 
   return (
     <StyledComponent>
@@ -71,6 +76,9 @@ const Layout = ({ children }) => {
       </SectionContacts>
       <SectionContent>{children}</SectionContent>
       <Footer>WILLO: $0.000000000</Footer>
+      <ButtonMobileMenu>
+        <MdOutlineMenu />
+      </ButtonMobileMenu>
     </StyledComponent>
   );
 };
@@ -84,6 +92,12 @@ const StyledComponent = styled(Box)`
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  @media (max-width: 900px) {
+    background-image: url(${imgBackgroundMobile01});
+  }
+  @media (max-width: 500px) {
+    background-image: url(${imgBackgroundMobile02});
+  }
 `;
 
 const SectionLogo = styled(Box)`
@@ -94,6 +108,21 @@ const SectionLogo = styled(Box)`
   left: 0px;
   cursor: pointer;
   user-select: none;
+  @media (max-width: 1365px) {
+    top: 0px;
+  }
+  @media (max-width: 900px) {
+    top: -30px;
+  }
+  @media (max-width: 768px) {
+    top: -20px;
+  }
+  @media (max-width: 500px) {
+    top: -10px;
+  }
+  @media (max-width: 430px) {
+    top: 0px;
+  }
 `;
 
 const ImgLogo = styled(Box)`
@@ -114,7 +143,7 @@ const ImgLogo = styled(Box)`
   @media (max-width: 500px) {
     width: 30px;
   }
-  @media (max-width: 390px) {
+  @media (max-width: 430px) {
     width: 25px;
     margin-right: 5px;
   }
@@ -133,6 +162,15 @@ const TextLogo = styled(Box)`
   }
   @media (max-width: 1024px) {
     font-size: 30px;
+  }
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
+  @media (max-width: 500px) {
+    font-size: 25px;
+  }
+  @media (max-width: 430px) {
+    font-size: 18px;
   }
 `;
 
@@ -175,6 +213,9 @@ const SectionContacts = styled(Box)`
   @media (max-width: 1024px) {
     top: 20px;
     right: 20px;
+  }
+  @media (max-width: 900px) {
+    display: none;
   }
 `;
 
@@ -246,6 +287,9 @@ const SectionPageLink = styled(Box)`
     top: 20px;
     padding-bottom: 10px;
   }
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 const TextEachLink = styled(Box)`
@@ -302,6 +346,18 @@ const SectionContent = styled(Box)`
   @media (max-width: 500px) {
     padding: 30px 20px;
   }
+`;
+
+const ButtonMobileMenu = styled(Box)`
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 30px;
+
+  cursor: pointer;
+  user-select: none;
 `;
 
 export default Layout;

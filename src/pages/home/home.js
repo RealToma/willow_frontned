@@ -7,6 +7,7 @@ import imgButtonWhite from "../../assets/images/background/buttonWhite.svg";
 import imgBone from "../../assets/images/icon/bone01.png";
 import imgHouse from "../../assets/images/icon/house01.png";
 import { FaPlus } from "react-icons/fa6";
+import { dataContacts } from "../../data/contacts";
 
 const Home = () => {
   return (
@@ -29,13 +30,15 @@ const Home = () => {
         </TextWelcomeDescription>
         <TextWelcomeDescription>
           Contract Address:{" "}
-          <TextContractAddress
-            href={`https://etherscan.io/address/${process.env.REACT_APP_ADDRESS_TOKEN_CONTRACT}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {process.env.REACT_APP_ADDRESS_TOKEN_CONTRACT}
-          </TextContractAddress>
+          <span>
+            <TextContractAddress
+              href={`https://etherscan.io/address/${process.env.REACT_APP_ADDRESS_TOKEN_CONTRACT}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {process.env.REACT_APP_ADDRESS_TOKEN_CONTRACT}
+            </TextContractAddress>
+          </span>
         </TextWelcomeDescription>
         <SectionButtonGroup01>
           <SectionBuy>
@@ -83,9 +86,54 @@ const Home = () => {
           </SectionHouse>
         </SectionBar>
       </SectionSeparate>
-      <SectionImage>
-        <img src={imgDog01} alt="dog" />
-      </SectionImage>
+      <SectionImageMobile>
+        <SectionImage>
+          <img src={imgDog01} alt="dog" />
+          <ImgMobileBorn>
+            <img src={imgBone} width={"100%"} height={"100%"} alt="imgBorn" />
+          </ImgMobileBorn>
+          <ImgMobilePlus01>
+            <FaPlus />
+          </ImgMobilePlus01>
+          <ImgMobilePlus02>
+            <FaPlus />
+          </ImgMobilePlus02>
+          <ImgMobileHouse>
+            <img src={imgHouse} width={"100%"} height={"100%"} alt="imgHouse" />
+          </ImgMobileHouse>
+        </SectionImage>
+      </SectionImageMobile>
+      <SectionViewExplorerMobile>
+        <MobileButtonViewExplorer
+          onClick={() => {
+            window.open(
+              `https://etherscan.io/address/${process.env.REACT_APP_ADDRESS_TOKEN_CONTRACT}`
+            );
+          }}
+        >
+          View Explorer
+        </MobileButtonViewExplorer>
+      </SectionViewExplorerMobile>
+      <SectionContacts>
+        {dataContacts.map((each, index) => {
+          return (
+            <a
+              href={each.urlContact}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+              key={index}
+            >
+              <SectionContactIcon
+                color={each.colorFont}
+                bgcolor={each.colorBack}
+              >
+                {each.icon}
+              </SectionContactIcon>
+            </a>
+          );
+        })}
+      </SectionContacts>
       {/* <SectionBottom>
         <TextHolders>TOTAL $WILLO HOLDERS / 0</TextHolders>
         <TextHolders>TOTAL $WILLO BURNED / 0</TextHolders>
@@ -99,7 +147,7 @@ const StyledComponent = styled(Box)`
   position: relative;
   width: 100%;
   justify-content: space-between;
-  @media (max-width: 1366px) {
+  @media (max-width: 1365px) {
     flex-direction: column;
   }
 `;
@@ -109,6 +157,7 @@ const SectionInfomation = styled(Box)`
   flex-direction: column;
   flex: 1;
   width: 100%;
+  z-index: 3;
 `;
 
 const TextWelcome = styled.span`
@@ -124,6 +173,15 @@ const TextWelcome = styled.span`
 
   @media (max-width: 1366px) {
     font-size: 40px;
+  }
+  @media (max-width: 1365px) {
+    margin-top: 60px;
+  }
+  @media (max-width: 1024px) {
+    margin-top: 80px;
+  }
+  @media (max-width: 900px) {
+    margin-top: 20px;
   }
   @media (max-width: 768px) {
     font-size: 30px;
@@ -160,7 +218,9 @@ const TextWelcomeDescription = styled(Box)`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-
+  > span {
+    word-break: break-all;
+  }
   margin-top: 40px;
   @media (max-width: 1440px) {
     margin-top: 20px;
@@ -194,6 +254,16 @@ const TextContractAddress = styled.a`
   &:hover {
     text-shadow: 0px 0px 6px white;
   }
+
+  @media (max-width: 1366px) {
+    font-size: 20px;
+  }
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+  @media (max-width: 500px) {
+    font-size: 15px;
+  }
 `;
 
 const SectionSeparate = styled(Box)`
@@ -204,7 +274,7 @@ const SectionSeparate = styled(Box)`
   @media (max-width: 1440px) {
     padding: 100px 0px 150px 80px;
   }
-  @media (max-width: 1366px) {
+  @media (max-width: 1365px) {
     display: none;
   }
 `;
@@ -218,16 +288,12 @@ const SectionBar = styled(Box)`
   border-radius: 20px;
 `;
 
-const SectionImage = styled(Box)`
+const SectionImageMobile = styled(Box)`
   display: flex;
+
+  z-index: 2;
   width: 650px;
   height: 650px;
-  align-items: center;
-  > img {
-    width: 100%;
-    height: auto;
-  }
-
   @media (max-width: 1440px) {
     width: 500px;
     height: 500px;
@@ -237,6 +303,46 @@ const SectionImage = styled(Box)`
     /* display: none; */
     width: 400px;
     height: 400px;
+  }
+  @media (max-width: 1365px) {
+    margin-top: 60px;
+    width: 100%;
+    > div {
+      width: 500px;
+      height: 500px;
+    }
+    justify-content: center;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    margin-top: 55px;
+    width: 100%;
+  }
+  @media (max-width: 500px) {
+    margin-top: 50px;
+  }
+`;
+
+const SectionViewExplorerMobile = styled(Box)`
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  @media (max-width: 1365px) {
+    display: flex;
+    width: 100%;
+  }
+`;
+
+const SectionImage = styled(Box)`
+  display: flex;
+  position: relative;
+  width: 100%;
+  align-items: center;
+
+  > img {
+    width: 100%;
+    height: auto;
   }
 `;
 
@@ -290,11 +396,12 @@ const ButtonBuy = styled(Box)`
     transform: scale(0.95);
   }
 
-  @media (max-width: 1440px) {
-  }
-  @media (max-width: 1366px) {
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 80px;
   }
   @media (max-width: 768px) {
+    font-size: 19px;
   }
   @media (max-width: 500px) {
     font-size: 18px;
@@ -332,17 +439,43 @@ const ButtonWhitepaper = styled(Box)`
   &:active {
     transform: scale(0.95);
   }
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 80px;
+  }
+  @media (max-width: 768px) {
+    font-size: 19px;
+  }
+  @media (max-width: 500px) {
+    font-size: 18px;
+  }
 `;
 
 const SectionBuy = styled(Box)`
   display: flex;
   flex-direction: column;
   margin-right: 60px;
+  @media (max-width: 900px) {
+    flex: 1;
+    margin-right: 50px;
+  }
+  @media (max-width: 768px) {
+    margin-right: 40px;
+  }
+  @media (max-width: 500px) {
+    margin-right: 30px;
+  }
+  @media (max-width: 768px) {
+    margin-right: 20px;
+  }
 `;
 
 const SectionSell = styled(Box)`
   display: flex;
   flex-direction: column;
+  @media (max-width: 900px) {
+    flex: 1;
+  }
 `;
 
 const TextBuy = styled(Box)`
@@ -426,6 +559,9 @@ const SectionExplorer = styled(Box)`
   left: 50%;
   bottom: -50px;
   transform: translateX(-50%);
+  @media (max-width: 1365px) {
+    display: none;
+  }
 `;
 
 const ButtonViewExplorer = styled(Box)`
@@ -455,6 +591,10 @@ const ButtonViewExplorer = styled(Box)`
   &:active {
     transform: scale(0.95);
   }
+  @media (max-width: 1366px) {
+    width: 250px;
+    height: 50px;
+  }
 `;
 
 const IconPlusBone = styled(Box)`
@@ -473,6 +613,158 @@ const IconPlusHouse = styled(Box)`
   font-size: 30px;
   right: -50px;
   bottom: -40px;
+`;
+
+const ImgMobileBorn = styled(Box)`
+  display: none;
+  position: absolute;
+  left: 0px;
+  top: -50px;
+  width: 120px;
+  aspect-ratio: 1;
+  @media (max-width: 1365px) {
+    display: flex;
+  }
+`;
+const ImgMobilePlus01 = styled(Box)`
+  display: none;
+  position: absolute;
+  right: 30px;
+  top: -10px;
+  color: white;
+  font-size: 40px;
+  @media (max-width: 1365px) {
+    display: flex;
+  }
+`;
+
+const ImgMobilePlus02 = styled(Box)`
+  display: none;
+  position: absolute;
+  left: 30px;
+  bottom: -20px;
+  color: white;
+  font-size: 40px;
+  @media (max-width: 1365px) {
+    display: flex;
+  }
+`;
+
+const ImgMobileHouse = styled(Box)`
+  display: none;
+  position: absolute;
+  right: 0px;
+  bottom: -50px;
+  width: 120px;
+  aspect-ratio: 1;
+  @media (max-width: 1365px) {
+    display: flex;
+  }
+`;
+
+const MobileButtonViewExplorer = styled(Box)`
+  display: flex;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  width: 320px;
+  height: 55px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+
+  text-align: center;
+  font-family: Bubblegum Sans;
+  font-size: 15.57px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 6.228px;
+  background: #80a3ff;
+
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s;
+  &:hover {
+    background-color: white;
+    color: #80a3ff;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+  @media (max-width: 1365px) {
+    width: 320px;
+    height: 55px;
+  }
+  @media (max-width: 1024px) {
+    width: 250px;
+    height: 50px;
+  }
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 30px;
+  }
+`;
+
+const SectionContacts = styled(Box)`
+  display: none;
+  align-items: center;
+  margin-bottom: 30px;
+  @media (max-width: 900px) {
+    display: flex;
+  }
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
+`;
+
+const SectionContactIcon = styled(Box)`
+  display: flex;
+  width: 60px;
+  aspect-ratio: 1;
+  border-radius: 18px;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  margin-left: 10px;
+  cursor: pointer;
+  user-select: none;
+
+  transition: 0.3s;
+  > svg {
+    transition: 0.3s;
+  }
+  &:hover {
+    > svg {
+      filter: drop-shadow(0px 0px 3px white);
+    }
+    transform: scale(1.1);
+  }
+  &:active {
+    > svg {
+      filter: none;
+    }
+    transform: scale(1);
+  }
+
+  @media (max-width: 1366px) {
+    border-radius: 15px;
+    width: 50px;
+    font-size: 22px;
+  }
+  @media (max-width: 1024px) {
+    border-radius: 12px;
+    width: 40px;
+    font-size: 18px;
+  }
+  @media (max-width: 768px) {
+    width: 45px;
+    font-size: 20px;
+  }
+  @media (max-width: 500px) {
+    width: 40px;
+    font-size: 18px;
+  }
 `;
 
 export default Home;
