@@ -57,9 +57,9 @@ const Layout = ({ children }) => {
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: "none" }}
+              key={index}
             >
               <SectionContactIcon
-                key={index}
                 color={each.colorFont}
                 bgcolor={each.colorBack}
               >
@@ -99,6 +99,25 @@ const SectionLogo = styled(Box)`
 const ImgLogo = styled(Box)`
   width: 60px;
   margin-right: 13px;
+
+  @media (max-width: 1366px) {
+    width: 55px;
+  }
+  @media (max-width: 1024px) {
+    width: 50px;
+    margin-right: 10px;
+  }
+  @media (max-width: 768px) {
+    width: 40px;
+    margin-right: 8px;
+  }
+  @media (max-width: 500px) {
+    width: 30px;
+  }
+  @media (max-width: 390px) {
+    width: 25px;
+    margin-right: 5px;
+  }
 `;
 
 const TextLogo = styled(Box)`
@@ -108,6 +127,13 @@ const TextLogo = styled(Box)`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
+  @media (max-width: 1440px) {
+    font-size: 35px;
+  }
+  @media (max-width: 1024px) {
+    font-size: 30px;
+  }
 `;
 
 const Footer = styled(Box)`
@@ -123,6 +149,16 @@ const Footer = styled(Box)`
   line-height: normal;
   right: 0px;
   bottom: 0px;
+
+  @media (max-width: 1366px) {
+    font-size: 23px;
+  }
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+  @media (max-width: 500px) {
+    font-size: 18px;
+  }
 `;
 
 const SectionContacts = styled(Box)`
@@ -131,6 +167,15 @@ const SectionContacts = styled(Box)`
   top: 25px;
   right: 25px;
   align-items: center;
+
+  @media (max-width: 1440px) {
+    top: 23px;
+    right: 23px;
+  }
+  @media (max-width: 1024px) {
+    top: 20px;
+    right: 20px;
+  }
 `;
 
 const SectionContactIcon = styled(Box)`
@@ -172,8 +217,13 @@ const SectionContactIcon = styled(Box)`
     width: 40px;
     font-size: 18px;
   }
-  @media (max-width: 430px) {
-    padding: 20px 15px;
+  @media (max-width: 768px) {
+    width: 45px;
+    font-size: 20px;
+  }
+  @media (max-width: 500px) {
+    width: 40px;
+    font-size: 18px;
   }
 `;
 
@@ -185,6 +235,17 @@ const SectionPageLink = styled(Box)`
   border-bottom: 2px solid #d9d9d9;
   top: 22px;
   left: 20%;
+
+  @media (max-width: 1366px) {
+    top: 20px;
+    left: 23%;
+    padding-bottom: 15px;
+  }
+  @media (max-width: 1200px) {
+    left: 20%;
+    top: 20px;
+    padding-bottom: 10px;
+  }
 `;
 
 const TextEachLink = styled(Box)`
@@ -211,6 +272,12 @@ const TextEachLink = styled(Box)`
   @media (max-width: 1440px) {
     margin: 0px 40px;
   }
+  @media (max-width: 1366px) {
+    margin: 0px 20px;
+  }
+  @media (max-width: 1024px) {
+    margin: 0px 15px;
+  }
   /* &:active {
     transform: scale(0.95);
   } */
@@ -225,6 +292,15 @@ const SectionContent = styled(Box)`
 
   @media (max-width: 1440px) {
     padding: 65px 40px 50px 40px;
+  }
+  @media (max-width: 1024px) {
+    padding: 50px 35px;
+  }
+  @media (max-width: 768px) {
+    padding: 40px 30px;
+  }
+  @media (max-width: 500px) {
+    padding: 30px 20px;
   }
 `;
 

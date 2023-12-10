@@ -84,7 +84,7 @@ const Home = () => {
         </SectionBar>
       </SectionSeparate>
       <SectionImage>
-        <img src={imgDog01} width={"100%"} height={"100%"} alt="dog" />
+        <img src={imgDog01} alt="dog" />
       </SectionImage>
       {/* <SectionBottom>
         <TextHolders>TOTAL $WILLO HOLDERS / 0</TextHolders>
@@ -99,6 +99,9 @@ const StyledComponent = styled(Box)`
   position: relative;
   width: 100%;
   justify-content: space-between;
+  @media (max-width: 1366px) {
+    flex-direction: column;
+  }
 `;
 
 const SectionInfomation = styled(Box)`
@@ -118,6 +121,16 @@ const TextWelcome = styled.span`
   line-height: normal;
 
   margin-top: 40px;
+
+  @media (max-width: 1366px) {
+    font-size: 40px;
+  }
+  @media (max-width: 768px) {
+    font-size: 30px;
+  }
+  @media (max-width: 500px) {
+    font-size: 25px;
+  }
 `;
 
 const TextWelcomeSmall = styled.span`
@@ -127,6 +140,16 @@ const TextWelcomeSmall = styled.span`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
+  @media (max-width: 1366px) {
+    font-size: 33px;
+  }
+  @media (max-width: 768px) {
+    font-size: 25px;
+  }
+  @media (max-width: 500px) {
+    font-size: 22px;
+  }
 `;
 
 const TextWelcomeDescription = styled(Box)`
@@ -141,6 +164,17 @@ const TextWelcomeDescription = styled(Box)`
   margin-top: 40px;
   @media (max-width: 1440px) {
     margin-top: 20px;
+  }
+  @media (max-width: 1366px) {
+    font-size: 20px;
+  }
+  @media (max-width: 768px) {
+    margin-top: 25px;
+    font-size: 18px;
+  }
+  @media (max-width: 500px) {
+    margin-top: 30px;
+    font-size: 15px;
   }
 `;
 
@@ -170,6 +204,9 @@ const SectionSeparate = styled(Box)`
   @media (max-width: 1440px) {
     padding: 100px 0px 150px 80px;
   }
+  @media (max-width: 1366px) {
+    display: none;
+  }
 `;
 
 const SectionBar = styled(Box)`
@@ -185,10 +222,21 @@ const SectionImage = styled(Box)`
   display: flex;
   width: 650px;
   height: 650px;
+  align-items: center;
+  > img {
+    width: 100%;
+    height: auto;
+  }
 
   @media (max-width: 1440px) {
     width: 500px;
     height: 500px;
+  }
+
+  @media (max-width: 1366px) {
+    /* display: none; */
+    width: 400px;
+    height: 400px;
   }
 `;
 
@@ -198,6 +246,15 @@ const SectionButtonGroup01 = styled(Box)`
   margin-top: 50px;
   @media (max-width: 1440px) {
     margin-top: 32px;
+  }
+  @media (max-width: 1366px) {
+    margin-top: 28px;
+  }
+  @media (max-width: 768px) {
+    margin-top: 25px;
+  }
+  @media (max-width: 500px) {
+    margin-top: 20px;
   }
 `;
 
@@ -231,6 +288,16 @@ const ButtonBuy = styled(Box)`
 
   &:active {
     transform: scale(0.95);
+  }
+
+  @media (max-width: 1440px) {
+  }
+  @media (max-width: 1366px) {
+  }
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 500px) {
+    font-size: 18px;
   }
 `;
 
@@ -293,6 +360,22 @@ const TextBuy = styled(Box)`
     margin-top: 50px;
     margin-bottom: 60px;
   }
+  @media (max-width: 1366px) {
+    font-size: 40px;
+    margin: 40px 0px;
+  }
+  @media (max-width: 1024px) {
+    font-size: 35px;
+    margin: 35px 0px;
+  }
+  @media (max-width: 768px) {
+    font-size: 30px;
+    margin: 30px 0px;
+  }
+  @media (max-width: 500px) {
+    font-size: 20px;
+    margin: 25px 0px;
+  }
 `;
 
 const TextHolders = styled(Box)`
@@ -305,6 +388,14 @@ const TextHolders = styled(Box)`
   font-weight: 400;
   line-height: normal;
   margin-right: 60px;
+  @media (max-width: 1366px) {
+  }
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media (max-width: 500px) {
+    font-size: 13px;
+  }
 `;
 
 const SectionBone = styled(Box)`
