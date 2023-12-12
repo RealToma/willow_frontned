@@ -1,10 +1,12 @@
 import {
   FaTelegramPlane,
-  FaTwitter,
+  // FaTwitter,
   FaDiscord,
   FaGithub,
   FaMedium,
 } from "react-icons/fa";
+
+import { BsTwitterX } from "react-icons/bs";
 
 export const dataContacts = [
   {
@@ -14,27 +16,27 @@ export const dataContacts = [
     urlContact: "https://t.me/Willow_Token",
   },
   {
-    icon: <FaTwitter />,
+    icon: <BsTwitterX />,
     colorFont: "white",
     colorBack: "black",
-    urlContact: "https://t.me/Willow_Token",
+    urlContact: "https://twitter.com/Willow_Token",
   },
   {
     icon: <FaDiscord />,
     colorFont: "white",
     colorBack: "#6201FF",
-    urlContact: "https://t.me/Willow_Token",
+    urlContact: "https://discord.com/Willow_Token",
   },
   {
     icon: <FaGithub />,
     colorFont: "white",
     colorBack: "black",
-    urlContact: "https://t.me/Willow_Token",
+    urlContact: "https://github.com/Willow_Token",
   },
   {
     icon: <FaMedium />,
     colorFont: "white",
     colorBack: "#30F",
-    urlContact: "https://t.me/Willow_Token",
+    urlContact: "https://medium.com/Willow_Token",
   },
 ];

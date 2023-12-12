@@ -303,6 +303,7 @@ const SectionContacts = styled(Box)`
   top: 25px;
   right: 25px;
   align-items: center;
+  z-index: 100;
 
   @media (max-width: 1440px) {
     top: 23px;
