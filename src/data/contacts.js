@@ -13,13 +13,13 @@ export const dataContacts = [
     icon: <FaTelegramPlane />,
     colorFont: "white",
     colorBack: "#5E9EFE",
-    urlContact: "https://t.me/Willow_Token",
+    urlContact: "https://t.me/Willow_Sol",
   },
   {
     icon: <BsTwitterX />,
     colorFont: "white",
     colorBack: "black",
-    urlContact: "https://twitter.com/Willow_Token",
+    urlContact: "https://Twitter.com/Willow_Sol",
   },
   {
     icon: <FaDiscord />,
