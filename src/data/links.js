@@ -11,7 +11,7 @@ export const dataLinks = [
   },
   {
     name: "Swap",
-    link: "https://app.uniswap.org/swap?chain=mainnet",
+    link: "https://raydium.io/swap",
     flagLink: false,
   },
 ];
