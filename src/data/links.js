@@ -10,8 +10,8 @@ export const dataLinks = [
     flagLink: false,
   },
   {
-    name: "Swap",
-    link: "https://raydium.io/swap",
-    flagLink: false,
+    name: "Firesale",
+    link: "/firesale",
+    flagLink: true,
   },
 ];

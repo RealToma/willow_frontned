@@ -219,7 +219,7 @@ const SectionLogo = styled(Box)`
     top: -10px;
   }
   @media (max-width: 430px) {
-    top: 0px;
+    top: -5px;
   }
 `;
 
@@ -231,7 +231,7 @@ const ImgLogo = styled(Box)`
     width: 55px;
   }
   @media (max-width: 1024px) {
-    width: 50px;
+    width: 40px;
     margin-right: 10px;
   }
   @media (max-width: 768px) {
@@ -294,6 +294,9 @@ const Footer = styled(Box)`
   }
   @media (max-width: 500px) {
     font-size: 18px;
+  }
+  @media (max-width: 430px) {
+    font-size: 16px;
   }
 `;
 

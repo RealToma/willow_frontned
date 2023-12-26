@@ -8,8 +8,14 @@ import imgBone from "../../assets/images/icon/bone01.png";
 import imgHouse from "../../assets/images/icon/house01.png";
 import { FaPlus } from "react-icons/fa6";
 import { dataContacts } from "../../data/contacts";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const handleBuy = () => {
+    navigate("/firesale");
+  };
+
   return (
     <StyledComponent>
       <SectionInfomation>
@@ -21,12 +27,12 @@ const Home = () => {
         </TextWelcome>
         <TextWelcomeDescription>
           Willow is a cryptocurrency that embrace the playful spirit of meme
-          culture and gamification on Solana Chain. Willow is more than just a
-          cryptocurrency—it's an experience, a journey, and a celebration of the
-          vibrant and creative community that forms its backbone. Inspired by
-          the charm of meme doges and fueled by the efficiency of blockchain
-          technology, Willow represents a unique fusion of fun and financial
-          innovation.
+          culture and gamification on Solana Chain. Willow is more than
+          just a cryptocurrency—it's an experience, a journey, and a celebration
+          of the vibrant and creative community that forms its backbone.
+          Inspired by the charm of meme doges and fueled by the efficiency of
+          blockchain technology, Willow represents a unique fusion of fun and
+          financial innovation.
         </TextWelcomeDescription>
         <TextWelcomeDescription>
           Contract Address:{" "}
@@ -42,14 +48,14 @@ const Home = () => {
         </TextWelcomeDescription>
         <SectionButtonGroup01>
           <SectionBuy>
-            <ButtonBuy>Buy $WILLO</ButtonBuy>
+            <ButtonBuy onClick={() => handleBuy()}>Buy $WILLO</ButtonBuy>
             <TextBuy>Buy Tax: 0%</TextBuy>
             <TextHolders>TOTAL $WILLO HOLDERS / 0</TextHolders>
           </SectionBuy>
           <SectionSell>
             <ButtonWhitepaper
               onClick={() => {
-                window.open(process.env.REACT_APP_LINK_WHITEPAPER);
+                window.open("https://docs.willowdoge.xyz");
               }}
             >
               Whitepaper

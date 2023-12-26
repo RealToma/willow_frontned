@@ -25,18 +25,18 @@ export const dataContacts = [
     icon: <FaDiscord />,
     colorFont: "white",
     colorBack: "#6201FF",
-    urlContact: "https://discord.com/Willow_Token",
+    urlContact: "https://discord.com/Willow_Sol",
   },
   {
     icon: <FaGithub />,
     colorFont: "white",
     colorBack: "black",
-    urlContact: "https://github.com/Willow_Token",
+    urlContact: "https://github.com/Willow_Sol",
   },
   {
     icon: <FaMedium />,
     colorFont: "white",
     colorBack: "#30F",
-    urlContact: "https://medium.com/Willow_Token",
+    urlContact: "https://medium.com/Willow_Sol",
   },
 ];
