@@ -12,12 +12,12 @@ import { Connection, PublicKey } from "@solana/web3.js";
 import { dataContacts } from "../../data/contacts";
 
 const Firesale = () => {
-  const [progress, setProgress] = useState(10);
+  const [progress, setProgress] = useState(0);
   const [flagCopiedAddress, setFlagCopiedAddress] = useState(false);
 
   const handleCopyAddress = () => {
     setFlagCopiedAddress(true);
-    copy(process.env.REACT_APP_ADDRESS_FIRESALE);
+    // copy(process.env.REACT_APP_ADDRESS_FIRESALE);
     setTimeout(() => {
       setFlagCopiedAddress(false);
     }, 1000);
@@ -25,7 +25,9 @@ const Firesale = () => {
 
   const [balance, setBalance] = useState(0);
   const walletAddress = process.env.REACT_APP_ADDRESS_FIRESALE;
-  const connection = new Connection("https://api.mainnet-beta.solana.com");
+  const connection = new Connection(process.env.REACT_APP_URL_RPC_SOLANA);
+
+  // const connection = new Connection("https://api.devnet.solana.com");
 
   useEffect(() => {
     // Fetch initial balance
@@ -34,18 +36,20 @@ const Firesale = () => {
       .then((initialBalance) => {
         console.log("initialBalance:", initialBalance);
         setBalance(initialBalance);
+        setProgress((initialBalance / 3000) * 100);
       })
       .catch((error) => {
         console.error("Error fetching balance:", error);
       });
 
-    // // Subscribe to balance updates
-    // const subscription = connection.onAccountChange(
-    //   new PublicKey(walletAddress),
-    //   (accountInfo, context) => {
-    //     setBalance(accountInfo.lamports);
-    //   }
-    // );
+    // Subscribe to balance updates
+    connection.onAccountChange(
+      new PublicKey(walletAddress),
+      (accountInfo, context) => {
+        setBalance(accountInfo.lamports);
+        setProgress((accountInfo.lamports / 3000) * 100);
+      }
+    );
 
     // return () => {
     //   // Unsubscribe when component unmounts
@@ -70,13 +74,13 @@ const Firesale = () => {
             value={progress}
           ></CustomProgress>
           <SectionTextProgress>
-            <TextSale>Raised: 0.00 SOL</TextSale>
+            <TextSale>Raised: {balance} SOL</TextSale>
             <TextSale>Hardcap: 3,000 SOL</TextSale>
           </SectionTextProgress>
         </SectionSaleProgress>
         <SectionDetail>
           <TextDeatil width={"100%"} textAlign={"center"}>
-            1 WILL = 0.000000001 SOL
+            1 WILL = 0.000000000000333 SOL
           </TextDeatil>
         </SectionDetail>
         <SectionDetail>
@@ -87,7 +91,8 @@ const Firesale = () => {
         <SectionDetail flexDirection={"column"}>
           <TextDeatil>Send SOL to :</TextDeatil>
           <TextDeatil>
-            <span>{process.env.REACT_APP_ADDRESS_FIRESALE}</span>
+            {/* <span>{process.env.REACT_APP_ADDRESS_FIRESALE}</span> */}
+            Sale address coming soon...
             <div style={{ display: "inline-block" }}>
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <div />
@@ -111,9 +116,10 @@ const Firesale = () => {
       </SectionFairLaunch>
       <ButtonViewExplorer
         onClick={() => {
-          window.open(
-            `https://solscan.io/account/${process.env.REACT_APP_ADDRESS_FIRESALE}`
-          );
+          // window.open(
+          //   `https://solscan.io/account/${process.env.REACT_APP_ADDRESS_FIRESALE}`
+          // );
+          window.open(`https://solscan.io/account`);
         }}
       >
         Transaction History
