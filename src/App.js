@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Box } from "@mui/material";
 import styled from "styled-components";
 import Home from "./pages/home/home";
@@ -7,7 +7,7 @@ import Firesale from "./pages/Firesale/firesale";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <StyledComponent>
         <Layout>
           <Routes>
@@ -16,7 +16,7 @@ function App() {
           </Routes>
         </Layout>
       </StyledComponent>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
